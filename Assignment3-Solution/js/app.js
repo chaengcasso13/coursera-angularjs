@@ -7,8 +7,6 @@
     .directive('foundItems', FoundItems)
     .constant("ApiBasePath", "https://coursera-jhu-default-rtdb.firebaseio.com");
 
-
-
   function FoundItems() {
     return {
       templateUrl: 'loader/foundItems.html',

@@ -22,11 +22,14 @@ function MenuService($http, ApiPath) {
     });
   };
 
-  service.getFavoriteItem = function (shortName) {
-    return $http.get(ApiPath + '/menu_items/json').then(function (response) {
-      return response.data;
-    });
-  }
+  // service.getFavoriteItem = function (shortName) {
+  //   return $http.get(ApiPath + '/menu_items/json').then(function (response) {
+  //     foreach(response.data) {
+        
+  //     }
+  //     return response.data;
+  //   });
+  // }
 
 }
 })();

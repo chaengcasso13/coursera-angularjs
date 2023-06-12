@@ -41,15 +41,15 @@ function routeConfig ($stateProvider) {
         }]
       }
     }).state('public.signup', {
-      url: '/signup/{category}',
+      url: '/signup',
       templateUrl: 'src/public/signup/signup.html',
       controller: 'SignUpController',
       controllerAs: 'signUpCtrl',
-      // resolve: {
-      //   menuItems: ['$stateParams','MenuService', function ($stateParams, MenuService) {
-      //     return MenuService.getMenuItems($stateParams.category);
-      //   }]
-      // }
+      resolve: {
+        info: ['SignUpService', function (SignUpService) {
+          return SignUpService.getInfo();
+        }]
+      }
     });
 }
 })();

@@ -4,10 +4,16 @@
     angular.module('public')
     .controller('SignUpController', SignUpController);
     
-    MenuItemsController.$inject = ['signUp'];
-    function MenuItemsController(signUp) {
+    SignUpController.$inject = ['info'];
+    function SignUpController(info) {
       var $ctrl = this;
-      $ctrl.signUp = signUp;
+      $ctrl.info = info;
+
+      // $scope.firstName = "Franz";
+      // $scope.lastName = "";
+      // $scope.email = "";
+      // $scope.phoneNumber = "";
+      // $scope.desiredMenuNumber = "";
     }
     
-    })();
+})();

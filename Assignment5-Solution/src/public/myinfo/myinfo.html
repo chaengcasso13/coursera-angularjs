@@ -3,8 +3,8 @@
       <h1>My Information</h1>
       <hr>
       <div>
-        <!-- {{ signUpCtrl.getInformation }}<br> -->
-        <table>
+        
+        <table ng-if="!signUpCtrl.getInformation.length">
             <tr>
                 <th colspan="4">First Name</td>
                 <td align="left">{{ signUpCtrl.getInformation.firstName }}</td>
@@ -22,11 +22,19 @@
                 <td align="left">{{ signUpCtrl.getInformation.phone }}</td>
             </tr>
             <tr>
-                <th colspan="4">Menu Number</td>
-                <td align="left">{{ signUpCtrl.getInformation.menuNumber }}</td>
+                <th colspan="4">Favorite Dish Menu Number</td>
+                <td align="left">{{ signUpCtrl.getInformation.dish.$$state.value.short_name }}</td>
             </tr>
-          </table>
+        </table>
+        
+        <menu-item ng-if="!signUpCtrl.getInformation.length"
+             menu-item="signUpCtrl.getInformation.dish.$$state.value" 
+             category-short-name="signUpCtrl.getInformation.shortName">
+        </menu-item>
 
+      </div>
+      <div ng-if="signUpCtrl.getInformation.length">
+        No information yet.
       </div>
     </div>
 </div>

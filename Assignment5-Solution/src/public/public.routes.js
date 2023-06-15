@@ -44,22 +44,12 @@ function routeConfig ($stateProvider) {
       url: '/signup',
       templateUrl: 'src/public/signup/signup.html',
       controller: 'SignUpController',
-      controllerAs: 'signUpCtrl',
-      // resolve: {
-      //   info: ['SignUpService', function (SignUpService) {
-      //     return SignUpService.getInfo();
-      //   }]
-      // }
+      controllerAs: 'signUpCtrl'
     }).state('public.myinfo', {
       url: '/myinfo',
       templateUrl: 'src/public/myinfo/myinfo.html',
       controller: 'SignUpController',
       controllerAs: 'signUpCtrl',
-      // resolve: {
-      //   info: ['SignUpService', function (SignUpService) {
-      //     return SignUpService.getInfo();
-      //   }]
-      // }
     });
 }
 })();

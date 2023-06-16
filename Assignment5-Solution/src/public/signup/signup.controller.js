@@ -22,6 +22,10 @@
       var myInfoObj = {}
       $scope.infoObj = {};
       $scope.favoriteDish = {};
+
+      var checkValid = function (infoObject) {
+        console.log("NAME: " + infoObject.dish.value.name);
+      }
       
       var dish = this;
       
@@ -43,14 +47,30 @@
           $scope.index = index;
 
           console.log("short name: " + $scope.shortName);
-          dish.getFavoriteDish = MenuService.getFavoriteItem($scope.menuNumber, $scope.shortName, $scope.index);
-          console.log(dish.getFavoriteDish.$$state.value === null);
 
-          if (dish.getFavoriteDish.$$state.value === null) {
-            // $scope.signup.$valid = false;
+          dish.getFavoriteDish = MenuService.getFavoriteItem($scope.menuNumber, $scope.shortName, $scope.index);
+
+          // dish.getFavoriteDish.then(function (response) {
+          //   dish.favDish = response.data;
+          // })
+
+          // $scope.container = dish.getFavoriteDish;
+          console.log(dish.favDish);
+
+          
+
+          // var container;
+
+          // MenuService.getFavoriteItem($scope.menuNumber, $scope.shortName, $scope.index).then(function(response) {
+          //   container = response.data;
+          //   console.log(dish.getFavoriteDish);
+          // })
+
+          if (dish.getFavoriteDish === null) {
             $scope.errorMessage = "Invalid menu number";
 
           } else {
+
             myInfoObj = {
               firstName: $scope.firstName,
               lastName: $scope.lastName,
@@ -61,6 +81,8 @@
               shortName: $scope.shortName,
               index: $scope.index
             }
+
+            console.log(myInfoObj.dish);
   
             $scope.firstName = "";
             $scope.lastName = "";
@@ -73,7 +95,11 @@
             $scope.infoObj = myInfoObj;
   
             MyInformationService.getInfoObj($scope.infoObj);
+
+            
           }
+
+          // console.log("NAMEs: " + signup.getInformation);
         }
       }
     }
@@ -84,6 +110,7 @@
 
       service.getInfoObj = function (myInfoObj) {
         informationObject = myInfoObj;
+        // console.log(informationObject.dish.$$state.value);
       }
 
       service.displayInfo = function () {
